@@ -18,13 +18,7 @@ function isInAlphabet(char){
 
 function shiftCharacter(char,shift){
     let charUnicode = char.codePointAt(0);
-    let shiftedChar = '';
-    if(isAlphabetUnicode(shiftedUnicode)){
-        shiftedChar = String.fromCharCode(shiftedUnicode);
-    } else {
-        
-    }
-
+    let shiftedChar = shiftUnicode(charUnicode,shift);
     return shiftedChar;
 };
 
@@ -39,7 +33,7 @@ function isAlphabetUnicode(unicode){
 };
 
 function isLowerAlphabetUnicode(unicode){
-    f(unicode >= 97 && unicode <= 122){
+    if(unicode >= 97 && unicode <= 122){
         return true;
     } else {
         return false;
@@ -54,17 +48,20 @@ function isUpperAlphabetUnicode(unicode){
     }
 };
 
-function unicodeShift(unicode,shift){
+function shiftUnicode(unicode,shift){
     let shiftedUnicode = unicode + shift;
     if(isLowerAlphabetUnicode(unicode)){
         if(isLowerAlphabetUnicode(shiftedUnicode)){
             return shiftedUnicode;
         } else {
             shiftedUnicode = wrapShiftLower(shiftedUnicode);
-            return shiftedUnicode
+            return shiftedUnicode;
         }
     } else if(isUpperAlphabetUnicode(unicode)){
         if(isUpperAlphabetUnicode(shiftedUnicode)){
+            return shiftedUnicode;
+        } else {
+            shiftedUnicode = wrapShiftUpper(shiftedUnicode);
             return shiftedUnicode;
         }
     }
