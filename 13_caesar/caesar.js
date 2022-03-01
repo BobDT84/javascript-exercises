@@ -50,21 +50,30 @@ function isUpperAlphabetUnicode(unicode){
 };
 
 function shiftUnicode(unicode,shift){
-    let shiftedUnicode = unicode + shift;
     if(isLowerAlphabetUnicode(unicode)){
-        if(isLowerAlphabetUnicode(shiftedUnicode)){
-            return shiftedUnicode;
-        } else {
-            shiftedUnicode = wrapShiftLower(shiftedUnicode);
-            return shiftedUnicode;
-        }
+        return shiftLower(unicode,shift);
     } else if(isUpperAlphabetUnicode(unicode)){
-        if(isUpperAlphabetUnicode(shiftedUnicode)){
-            return shiftedUnicode;
-        } else {
-            shiftedUnicode = wrapShiftUpper(shiftedUnicode);
-            return shiftedUnicode;
-        }
+        return shiftUpper(unicode,shift);
+    }
+};
+
+function shiftLower(unicode,shift){
+    let shiftedUnicode = unicode + shift;
+    if(isLowerAlphabetUnicode(shiftedUnicode)){
+        return shiftedUnicode;
+    } else {
+        shiftedUnicode = wrapShiftLower(shiftedUnicode);
+        return shiftedUnicode;
+    }
+};
+
+function shiftUpper(unicode,shift){
+    let shiftedUnicode = unicode + shift;
+    if(isUpperAlphabetUnicode(shiftedUnicode)){
+        return shiftedUnicode;
+    } else {
+        shiftedUnicode = wrapShiftUpper(shiftedUnicode);
+        return shiftedUnicode;
     }
 };
 
