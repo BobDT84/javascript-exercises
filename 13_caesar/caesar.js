@@ -23,16 +23,6 @@ function shiftCharacter(char,shift){
     return shiftedChar;
 };
 
-function isAlphabetUnicode(unicode){
-    if(unicode >= 97 && unicode <= 122){
-        return true;
-    } else if (unicode >= 65 && unicode <= 90){
-        return true;
-    } else {
-        return false;
-    }
-};
-
 function isLowerAlphabetUnicode(unicode){
     if(unicode >= 97 && unicode <= 122){
         return true;
