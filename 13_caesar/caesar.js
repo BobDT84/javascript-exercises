@@ -56,8 +56,6 @@ function isUpperAlphabetUnicode(unicode){
 
 function unicodeShift(unicode,shift){
     let shiftedUnicode = unicode + shift;
-    let A = 65;
-    let Z = 90;
     if(isLowerAlphabetUnicode(unicode)){
         if(isLowerAlphabetUnicode(shiftedUnicode)){
             return shiftedUnicode;
@@ -75,7 +73,34 @@ function unicodeShift(unicode,shift){
 function wrapShiftLower(unicode){
     let a = 97;
     let z = 122;
-}
+    if(unicode > z){
+        while(!isLowerAlphabetUnicode(unicode)){
+            unicode = unicode - 26;
+        }
+        return unicode;
+    } else if(unicode < a){
+        while(!isLowerAlphabetUnicode(unicode)){
+            unicode = unicode + 26;
+        }
+        return unicode;
+    }
+};
+
+function wrapShiftUpper(unicode){
+    let A = 65;
+    let Z = 90;
+    f(unicode > Z){
+        while(!isUpperAlphabetUnicode(unicode)){
+            unicode = unicode - 26;
+        }
+        return unicode;
+    } else if(unicode < A){
+        while(!isUpperAlphabetUnicode(unicode)){
+            unicode = unicode + 26;
+        }
+        return unicode;
+    }
+};
 
 
 // Do not edit below this line
