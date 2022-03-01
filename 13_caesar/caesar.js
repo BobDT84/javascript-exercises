@@ -2,7 +2,6 @@ const caesar = function(message,shift) {
     let messageArray = message.split('');
     let endOfArray = messageArray.length;
     let char = '';
-
     for(let i=0; i<endOfArray; i++){
         char = messageArray[i];
         if(isInAlphabet(char)){
@@ -72,11 +71,15 @@ function wrapShiftLower(unicode){
     let z = 122;
     if(unicode > z){
         while(!isLowerAlphabetUnicode(unicode)){
-            unicode = unicode - 26;
+            //Subtract multiples of the alphabet until
+            //the unicode is equal to or between 97 and 122
+            unicode = unicode - 26; 
         }
         return unicode;
     } else if(unicode < a){
         while(!isLowerAlphabetUnicode(unicode)){
+            //Add multiples of the alphabet until the
+            //unicode is equal to or between 97 and 122
             unicode = unicode + 26;
         }
         return unicode;
@@ -88,11 +91,15 @@ function wrapShiftUpper(unicode){
     let Z = 90;
     if(unicode > Z){
         while(!isUpperAlphabetUnicode(unicode)){
+            //Subtract multiples of the alphabet until
+            //the unicode is equal to or between 65 and 90
             unicode = unicode - 26;
         }
         return unicode;
     } else if(unicode < A){
         while(!isUpperAlphabetUnicode(unicode)){
+            //Add multiples of the alphabet until the
+            //unicode is equal to or between 65 and 90
             unicode = unicode + 26;
         }
         return unicode;
