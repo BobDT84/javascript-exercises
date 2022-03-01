@@ -18,7 +18,8 @@ function isInAlphabet(char){
 
 function shiftCharacter(char,shift){
     let charUnicode = char.codePointAt(0);
-    let shiftedChar = shiftUnicode(charUnicode,shift);
+    charUnicode = shiftUnicode(charUnicode,shift);
+    let shiftedChar = String.fromCharCode(charUnicode);
     return shiftedChar;
 };
 
