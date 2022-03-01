@@ -23,7 +23,9 @@ function shiftCharacter(char,shift){
 };
 
 function isLowerAlphabetUnicode(unicode){
-    if(unicode >= 97 && unicode <= 122){
+    let a = 'a'.charCodeAt(0); //Unicode 97
+    let z = 'z'.charCodeAt(0); //Unicode 122
+    if(unicode >= a && unicode <= z){
         return true;
     } else {
         return false;
@@ -31,7 +33,9 @@ function isLowerAlphabetUnicode(unicode){
 };
 
 function isUpperAlphabetUnicode(unicode){
-    if (unicode >= 65 && unicode <= 90){
+    let A = 'A'.charCodeAt(0); //Unicode 65
+    let Z = 'Z'.charCodeAt(0); //Unicode 90
+    if (unicode >= A && unicode <= Z){
         return true;
     } else {
         return false;
@@ -67,8 +71,8 @@ function shiftUpper(unicode,shift){
 };
 
 function wrapShiftLower(unicode){
-    let a = 97;
-    let z = 122;
+    let a = 'a'.charCodeAt(0); //Unicode 97
+    let z = 'z'.charCodeAt(0); //Unicode 122
     if(unicode > z){
         while(!isLowerAlphabetUnicode(unicode)){
             //Subtract multiples of the alphabet until
@@ -87,8 +91,8 @@ function wrapShiftLower(unicode){
 };
 
 function wrapShiftUpper(unicode){
-    let A = 65;
-    let Z = 90;
+    let A = 'A'.charCodeAt(0); //Unicode 65
+    let Z = 'Z'.charCodeAt(0); //Unicode 90
     if(unicode > Z){
         while(!isUpperAlphabetUnicode(unicode)){
             //Subtract multiples of the alphabet until
