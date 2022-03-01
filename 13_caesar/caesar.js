@@ -89,7 +89,7 @@ function wrapShiftLower(unicode){
 function wrapShiftUpper(unicode){
     let A = 65;
     let Z = 90;
-    f(unicode > Z){
+    if(unicode > Z){
         while(!isUpperAlphabetUnicode(unicode)){
             unicode = unicode - 26;
         }
