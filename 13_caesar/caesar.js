@@ -39,12 +39,44 @@ function isAlphabetUnicode(unicode){
 };
 
 function isLowerAlphabetUnicode(unicode){
+    f(unicode >= 97 && unicode <= 122){
+        return true;
+    } else {
+        return false;
+    }
+};
 
+function isUpperAlphabetUnicode(unicode){
+    if (unicode >= 65 && unicode <= 90){
+        return true;
+    } else {
+        return false;
+    }
 };
 
 function unicodeShift(unicode,shift){
-    if()
     let shiftedUnicode = unicode + shift;
+    let A = 65;
+    let Z = 90;
+    if(isLowerAlphabetUnicode(unicode)){
+        if(isLowerAlphabetUnicode(shiftedUnicode)){
+            return shiftedUnicode;
+        } else {
+            shiftedUnicode = wrapShiftLower(shiftedUnicode);
+            return shiftedUnicode
+        }
+    } else if(isUpperAlphabetUnicode(unicode)){
+        if(isUpperAlphabetUnicode(shiftedUnicode)){
+            return shiftedUnicode;
+        }
+    }
 };
+
+function wrapShiftLower(unicode){
+    let a = 97;
+    let z = 122;
+}
+
+
 // Do not edit below this line
 module.exports = caesar;
