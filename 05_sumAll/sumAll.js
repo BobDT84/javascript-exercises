@@ -2,7 +2,8 @@ const sumAll = function(num1,num2) {
     if(isValidArgumentForSumAll(num1,num2)){
         return sumAllBetween(
                 Math.min(num1,num2),
-                Math.max(num1,num2));
+                Math.max(num1,num2)
+                );
     } else {
         return 'ERROR';
     }
